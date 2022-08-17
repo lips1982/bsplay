@@ -49,7 +49,7 @@ def main():
         #    db.updateOne("accountmanager",elemid,"creacionlistasentrenamiento",2)
         db.cerrarConexion()
     
-    valor= random.randint(5,300)
+    valor= random.randint(5,30)
     time.sleep(valor)
 
     print (email, id,db,passw)
