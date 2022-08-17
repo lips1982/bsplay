@@ -84,9 +84,9 @@ def main():
         acciones.sleep(10)    
         acciones.refreshweb()
         acciones.sleep(10)
-        pyautogui.screenshot(os.path.join(pathImg,f"{email}-loging.png"))
+        pyautogui.screenshot(os.path.join(pathImg,"loging.png"))
         acciones.sleep(15)
-        mensaje= f"{email}-loging.png"
+        mensaje= f"loging.png"
         enviaremailmensaje(email,mensaje)        
         pyautogui.moveTo(1866, 1223)
         pyautogui.click()

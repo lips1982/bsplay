@@ -76,12 +76,11 @@ class Acciones(BaseAcciones):
             self.abrirlistareproduccion()
 
     def albumfollow(self):
-        xpathfollow= (By.XPATH,"//*[@id='main']/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[2]/div[4]/div/div/div/div/button[1]") 
-        visibleBotonPlay = self.explicitWaitElementoVisibility(25,xpathfollow)
-        if visibleBotonPlay:
-                texto=self.valortexto(xpathfollow) 
-                if texto =="Follow":
-                    self.click(xpathfollow)
+        xpathfollow= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[2]/div[4]/div/div/div/div/button[1]') 
+        texto= self.findElement(xpathfollow)
+        txt= texto.text
+        if txt =="Follow":
+            self.click(xpathfollow)
 
     def reproducir1(self,email):
         xpathbotonplay= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/div/section/div[2]/div[2]/div[4]/div/div/div/div/div/button') 

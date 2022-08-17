@@ -101,11 +101,6 @@ class BaseAcciones():
         self.findElement(el).click()
         self.sleep(0.8)
 
-    def valortexto(self, el):
-        texto =self.findElement(el)
-        txt= texto.text
-        return txt
-
     def cantidadWindowHandle(self):
         return self.driver.window_handles
 
@@ -124,14 +119,6 @@ class BaseAcciones():
             return elemento
         except:
             return False
-    def explicitWaitElementoclickeable(self,time,el):
-        try:
-            elemento=WebDriverWait(self.driver, time).until(expected_conditions.element_to_be_clickable(el))
-            return elemento
-        except:
-            return False
-
-
 
     def explicitWaitElementoInvisibility(self,time,el):
         try:
