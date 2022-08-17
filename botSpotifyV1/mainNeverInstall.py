@@ -142,7 +142,9 @@ if __name__ == '__main__':
     except Exception as e:
         with open(os.path.join(pathImg,f"logerror.txt"), 'w') as f:
             f.write(str(e))
-
+        error= "logerror.txt"
+        email="mainerror"
+        enviaremailerror(email,error)
 #acc 1: registrada ok
 #acc 1, pais COL , >>>>  acc 1 pais US
 #acc 5: lista reproduccion ok
