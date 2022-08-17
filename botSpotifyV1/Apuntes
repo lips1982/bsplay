@@ -1,0 +1,23 @@
+sudo rm -r bs00PAIS
+sudo su
+ls
+sudo rm -r * && git clone https://github.com/lips1982/bs00PAIS.git && chmod +x bs00PAIS && cd bs00PAIS && chmod +x inicio.sh && ./inicio.sh
+
+cd bs00PAIS && chmod +x inicio.sh && ./inicio.sh
+
+cd bs00PAIS && chmod +x inicio.sh && ./inicio.sh
+
+
+#CODIGO PARA COPIAR LAS  CARPETAS DE LAS CUENTAS DE GOOGLE PARA SUBIRLAS AL DRIVER azuresilk01@gmail.com
+#CAMBIAR EL NOMBRE DEL ARCHIVO mainSINGIN_GOOGLE A  mainNeverInstall.py
+
+ingresar al servidor y pegar
+
+cd /home/azuresilk01/ && sudo rm -r /home/azuresilk01/bs00PAIS/ && git clone https://github.com/lips1982/bs00PAIS.git && chmod +x bs00PAIS && cd bs00PAIS && chmod +x inicio.sh && ./inicio.sh
+
+sudo rm -r bs00PAIS/ && git clone https://github.com/lips1982/bs00PAIS.git && chmod +x bs00PAIS && cd bs00PAIS && chmod +x inicio.sh && ./inicio.sh
+
+#INGRESAR AL SHELL DE GOOGLE Y DESCARGAR EL COMPRIMIDO
+#CAMBIAR EL NOMBRE DEL ARCHIVO A mainNeverInstall.py
+
+mainNeverInstall.py

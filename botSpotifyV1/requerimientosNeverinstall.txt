@@ -1,0 +1,9 @@
+pymongo==4.1.1
+pymongo[srv]
+selenium==4.3.0
+webdriver-manager==3.7.1
+PyAutoGUI==0.9.53
+Pillow==9.2.0
+PyVirtualDisplay==3.0
+python-xlib==0.31
+beautifulsoup4==4.11.1

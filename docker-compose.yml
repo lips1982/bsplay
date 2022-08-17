@@ -1,0 +1,22 @@
+version: "3.5"
+
+services:
+
+    neverinstall1:
+        #restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./img/neverinstall1:/app/Almacenamiento/img
+
+    neverinstall2:
+        #restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./img/neverinstall2:/app/Almacenamiento/img
+
+volumes:
+  img: {}
