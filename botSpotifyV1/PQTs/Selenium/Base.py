@@ -144,3 +144,8 @@ class BaseAcciones():
 
     def switchToDefaultContent(self):
         self.driver.switch_to.default_content()            
+
+    def texto(self, el):
+        textoelemento = self.driver.find_element(el)
+        txt = textoelemento.text
+        return txt

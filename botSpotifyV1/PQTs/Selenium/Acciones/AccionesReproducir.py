@@ -78,9 +78,9 @@ class Acciones(BaseAcciones):
     def albumfollow(self,email):
         
         xpathfollow= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[2]/div[4]/div/div/div/div/button[1]') 
-        texto= self.findElement(xpathfollow)
-        txt= texto.text
-        if txt =="Follow":
+        texto= self.texto(xpathfollow)
+        
+        if texto =="Follow":
             self.click(xpathfollow)
             time.sleep(10)
             pyautogui.screenshot(os.path.join(pathImg,f"follow.png"))
