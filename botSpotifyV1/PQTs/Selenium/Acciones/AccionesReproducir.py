@@ -75,12 +75,18 @@ class Acciones(BaseAcciones):
             time.sleep(10)
             self.abrirlistareproduccion()
 
-    def albumfollow(self):
+    def albumfollow(self,email):
+        
         xpathfollow= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[2]/div[4]/div/div/div/div/button[1]') 
         texto= self.findElement(xpathfollow)
         txt= texto.text
         if txt =="Follow":
             self.click(xpathfollow)
+            time.sleep(10)
+            pyautogui.screenshot(os.path.join(pathImg,f"follow.png"))
+            time.sleep(15)
+            imagen= "follow.png"
+            enviaremailreproduccion(email,imagen)
 
     def reproducir1(self,email):
         xpathbotonplay= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/div/section/div[2]/div[2]/div[4]/div/div/div/div/div/button') 

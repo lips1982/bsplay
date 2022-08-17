@@ -106,7 +106,8 @@ def main():
                 f.write("Reproduciendo el album") 
             mensaje= "mensaje.txt"
             enviaremailmensaje(email,mensaje)
-            acciones.albumfollow()
+            time.sleep(10)
+            acciones.albumfollow(email)
             acciones.reproducir2(email)
             
         elif valor ==3:
