@@ -9,12 +9,10 @@ from PQTs.Selenium.Base import BaseConexion
 from PQTs.Paths import pathImg
 import time
 import random
-from PQTs.Selenium.Acciones.AccionesReproducir import Acciones
+from PQTs.Selenium.Acciones.AccionesReproducirtest import Acciones
 from PQTs.Selenium.Acciones.enviaremail import *
 from datetime import datetime
 def main():
-
-
     #--> Descomentar para ver en PC
     #display = Display(visible=True, size=(1200,768))
 
@@ -42,7 +40,7 @@ def main():
         email= (elem["email"])
         id=(elem["_id"])
         passw =(elem["pass"])
-        db.updateOne("accountmanager",id,"acc_estado",7)
+        db.updateOne("accountmanager",id,"acc_estado",5)
         db.updateOne("accountmanager",id,"datelogin",time.time())  
         #for elemid in id:
         #    db.updateOne("accountmanager",elemid,"creacionlistasentrenamiento",2)
@@ -57,7 +55,7 @@ def main():
         
         driver = BaseConexion().conexionChrome()
         #driver = BaseConexion().conexionChromeHeadless()
-
+    
         acciones = Acciones(driver)
         try:
             ingresando=acciones.ingresarSpotify()
@@ -87,9 +85,9 @@ def main():
         acciones.sleep(15)
         #mensaje= f"loging.png"
         #enviaremailmensaje(email,mensaje)        
-        pyautogui.moveTo(1866, 1223)
-        pyautogui.click()
-        valor= random.randint(1,2)
+        #pyautogui.moveTo(1866, 1223)
+        #pyautogui.click()
+        valor= 2
         if valor == 1:  #reproducir lista
             #with open(os.path.join(pathImg,f"mensaje.txt"), 'w') as f:
             #    f.write("Reproduciendo la lista ") 
@@ -117,23 +115,14 @@ def main():
     try:
         iniciarSpotify (email,passw)
         MYIP="REEMPLAZARPUBLICIP"
-        db.iniciarDB()
-        db.updateOne("accountmanager",id,"acc_estado",10)
-        db.insertOne("logreproduccion",{ "date":datetime.today().strftime('%Y-%m-%d %H:%M'),"email": email,"IP":MYIP })
-        db.cerrarConexion()
+
 
     except Exception as e:
-        with open(os.path.join(pathImg,f"error.txt"), 'w') as f:
-            f.write(str(e))        
-        db.iniciarDB()
-        db.updateOne("accountmanager",id,"acc_estado",9)
-        db.cerrarConexion()
-        error= "error.txt"
-        enviaremailerror(email,error)
+        print(e)
 
 
      
-    display.stop()
+    #display.stop()
 
 if __name__ == '__main__':
     try:

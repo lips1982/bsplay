@@ -148,4 +148,5 @@ class BaseAcciones():
     def texto(self, el):
         textoelemento = self.driver.find_element(el)
         txt = textoelemento.text
+        print(txt)
         return txt

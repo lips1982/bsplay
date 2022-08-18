@@ -76,13 +76,16 @@ class Acciones(BaseAcciones):
             self.abrirlistareproduccion()
 
     def albumfollow(self,email):
+        print ("entrando a follow")
+        time.sleep(25)
+        xpathfollow= (By.CLASS_NAME,'idI9vydtCzXVhU1BaKLw') 
         
-        xpathfollow= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[2]/div[4]/div/div/div/div/button[1]') 
-        texto= self.findElement(xpathfollow)
-        txt= texto.text
-        if txt =="Follow":
+        texto= str(self.texto(xpathfollow))
+        
+        if texto =="SEGUIR":
             self.click(xpathfollow)
             time.sleep(10)
+
 
 
     def reproducir1(self,email):
@@ -90,10 +93,7 @@ class Acciones(BaseAcciones):
         try:                        
             self.click(xpathbotonplay)
             time.sleep(10)
-            #pyautogui.screenshot(os.path.join(pathImg,f"reproduciendo.png"))
-            #time.sleep(15)
-            #imagen= "reproduciendo.png"
-            #enviaremailreproduccion(email,imagen)
+
         except:
             self.refreshweb()
             time.sleep(10)
@@ -130,24 +130,7 @@ class Acciones(BaseAcciones):
             self.click(xpathbotonplay)
         pass
 
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"3min.png"))
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"6min.png"))
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"9min.png"))
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"12min.png"))    
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"15min.png"))
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"18min.png"))    
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"21min.png"))    
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"24min.png"))    
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"27min.png"))    
+
 
     def enviardatos(self,email):
         remitente = 'mayfeljonas1229@gmail.com'
