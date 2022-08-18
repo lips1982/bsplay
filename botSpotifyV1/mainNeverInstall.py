@@ -95,27 +95,30 @@ def main():
             with open(os.path.join(pathImg,f"mensaje.txt"), 'w') as f:
                 f.write("Reproduciendo la lista ") 
             mensaje= "mensaje.txt"
-            enviaremailmensaje(email,mensaje)
+            #enviaremailmensaje(email,mensaje)
             acciones.abrirlistareproduccion()
             time.sleep(10)
             pyautogui.moveTo(1065, 745)
             pyautogui.moveTo(1065, 745)
             pyautogui.click()            
             pyautogui.click()
-            time.sleep(2)            
-            pyautogui.screenshot(os.path.join(pathImg,f"abrirlista.png"))
-            time.sleep(15)
-            imagen= "abrirlista.png"
-            enviaremailreproduccion(email,imagen)            
+            #time.sleep(2)            
+            #pyautogui.screenshot(os.path.join(pathImg,f"abrirlista.png"))
+            #time.sleep(15)
+            #imagen= "abrirlista.png"
+            #enviaremailreproduccion(email,imagen)            
             acciones.reproducir1(email)
             
         
         elif valor==2: #reproducir directamente del album
             acciones.ir('https://open.spotify.com/artist/79y2edTYTHJtBpwcVuCnhH')
+            time.sleep(10)
+            pyautogui.moveTo(1065, 745)
+            pyautogui.click()             
             with open(os.path.join(pathImg,f"mensaje.txt"), 'w') as f:
                 f.write("Reproduciendo el album") 
-            mensaje= "mensaje.txt"
-            enviaremailmensaje(email,mensaje)
+            #mensaje= "mensaje.txt"
+            #enviaremailmensaje(email,mensaje)
             time.sleep(10)
             acciones.reproducir2(email)
             
