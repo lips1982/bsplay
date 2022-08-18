@@ -98,6 +98,11 @@ def main():
             enviaremailmensaje(email,mensaje)
             acciones.abrirlistareproduccion()
             time.sleep(10)
+            pyautogui.moveTo(1065, 745)
+            pyautogui.moveTo(1065, 745)
+            pyautogui.click()            
+            pyautogui.click()
+            time.sleep(2)            
             pyautogui.screenshot(os.path.join(pathImg,f"abrirlista.png"))
             time.sleep(15)
             imagen= "abrirlista.png"
