@@ -173,7 +173,7 @@ class Acciones(BaseAcciones):
 
         # Iniciamos sesión en el servidor
         #sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
-        sesion_smtp.login('azuresilk02@gmail.com','dudwvopyazvtxtun')
+        sesion_smtp.login('azuresilk02@gmail.com','iyuwppjjgfshypht')
 
         # Convertimos el objeto mensaje a texto
         texto = mensaje.as_string()
