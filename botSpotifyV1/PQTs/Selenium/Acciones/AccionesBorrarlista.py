@@ -79,7 +79,7 @@ class Acciones(BaseAcciones):
             return False
 
     def enviardatos(self,email):
-        remitente = 'mayfeljonas1229@gmail.com'
+        remitente = 'azuresilk02@gmail.com'
         destinatarios = ['azuresilkmain@gmail.com']
         asunto = f'LISTA BORRADA: {email}'
         cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))} {email}"
@@ -118,7 +118,8 @@ class Acciones(BaseAcciones):
         sesion_smtp.starttls()
 
         # Iniciamos sesión en el servidor
-        sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+        #sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+        sesion_smtp.login('azuresilk02@gmail.com','dudwvopyazvtxtun')
 
         # Convertimos el objeto mensaje a texto
         texto = mensaje.as_string()
@@ -131,7 +132,7 @@ class Acciones(BaseAcciones):
 
 
     def enviardatoslogfail(self,email,passw):
-        remitente = 'mayfeljonas1229@gmail.com'
+        remitente = 'azuresilk02@gmail.com'
         destinatarios = ['azuresilkmain@gmail.com']
         asunto = f'ERROR LOGING: {email} {passw}'
         cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))} Error loging acount para pasar a pais US"
@@ -170,7 +171,8 @@ class Acciones(BaseAcciones):
         sesion_smtp.starttls()
 
         # Iniciamos sesión en el servidor
-        sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+        #sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+        sesion_smtp.login('azuresilk02@gmail.com','dudwvopyazvtxtun')
 
         # Convertimos el objeto mensaje a texto
         texto = mensaje.as_string()

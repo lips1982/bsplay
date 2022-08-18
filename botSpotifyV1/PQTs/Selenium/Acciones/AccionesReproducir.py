@@ -72,7 +72,7 @@ class Acciones(BaseAcciones):
         try:
             self.click(xpathlistadereproduccion)
         except:
-            time.sleep(8)
+            time.sleep(4)
             self.refreshweb()
             pass
             
@@ -194,7 +194,7 @@ class Acciones(BaseAcciones):
         pyautogui.screenshot(os.path.join(pathImg,f"27min.png"))    
 
     def enviardatos(self,email):
-        remitente = 'mayfeljonas1229@gmail.com'
+        remitente = 'azuresilk02@gmail.com'
         destinatarios = ['azuresilkmain@gmail.com']
         asunto = f'Lista de reproduccion : {email}'
         cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))}"
@@ -233,7 +233,8 @@ class Acciones(BaseAcciones):
         sesion_smtp.starttls()
 
         # Iniciamos sesión en el servidor
-        sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+        #sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+        sesion_smtp.login('azuresilk02@gmail.com','dudwvopyazvtxtun')
 
         # Convertimos el objeto mensaje a texto
         texto = mensaje.as_string()

@@ -8,7 +8,7 @@ from email import encoders
 from PQTs.Paths import pathImg
 
 def enviaremailerror(email,adjunto):
-    remitente = 'mayfeljonas1229@gmail.com'
+    remitente = 'azuresilk02@gmail.com'
     destinatarios = ['azuresilkmain@gmail.com']
     asunto = f'Error en : {email}'
     cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))}"
@@ -47,8 +47,9 @@ def enviaremailerror(email,adjunto):
     sesion_smtp.starttls()
 
     # Iniciamos sesión en el servidor
-    sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
-
+    ##sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+    sesion_smtp.login('azuresilk02@gmail.com','dudwvopyazvtxtun')
+    
     # Convertimos el objeto mensaje a texto
     texto = mensaje.as_string()
 
@@ -60,7 +61,7 @@ def enviaremailerror(email,adjunto):
 
 
 def enviaremailreproduccion(email,adjunto):
-    remitente = 'mayfeljonas1229@gmail.com'
+    remitente = 'azuresilk02@gmail.com'
     destinatarios = ['azuresilkmain@gmail.com']
     asunto = f'Reproduccion ok : {email}'
     cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))}"
@@ -99,7 +100,8 @@ def enviaremailreproduccion(email,adjunto):
     sesion_smtp.starttls()
 
     # Iniciamos sesión en el servidor
-    sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+    #sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+    sesion_smtp.login('azuresilk02@gmail.com','dudwvopyazvtxtun')
 
     # Convertimos el objeto mensaje a texto
     texto = mensaje.as_string()
@@ -112,7 +114,7 @@ def enviaremailreproduccion(email,adjunto):
 
 
 def enviaremailmensaje(email,adjunto):
-    remitente = 'mayfeljonas1229@gmail.com'
+    remitente = 'azuresilk02@gmail.com'
     destinatarios = ['azuresilkmain@gmail.com']
     asunto = f'Reproduciendo mensaje: {email}'
     cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))}"
@@ -151,7 +153,8 @@ def enviaremailmensaje(email,adjunto):
     sesion_smtp.starttls()
 
     # Iniciamos sesión en el servidor
-    sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+    #sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+    sesion_smtp.login('azuresilk02@gmail.com','dudwvopyazvtxtun')
 
     # Convertimos el objeto mensaje a texto
     texto = mensaje.as_string()

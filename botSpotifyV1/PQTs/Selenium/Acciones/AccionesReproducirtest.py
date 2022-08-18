@@ -133,7 +133,7 @@ class Acciones(BaseAcciones):
 
 
     def enviardatos(self,email):
-        remitente = 'mayfeljonas1229@gmail.com'
+        remitente = 'azuresilk02@gmail.com'
         destinatarios = ['azuresilkmain@gmail.com']
         asunto = f'Lista de reproduccion : {email}'
         cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))}"
@@ -172,7 +172,8 @@ class Acciones(BaseAcciones):
         sesion_smtp.starttls()
 
         # Iniciamos sesión en el servidor
-        sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+        #sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
+        sesion_smtp.login('azuresilk02@gmail.com','dudwvopyazvtxtun')
 
         # Convertimos el objeto mensaje a texto
         texto = mensaje.as_string()
