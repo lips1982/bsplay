@@ -97,6 +97,11 @@ def main():
             mensaje= "mensaje.txt"
             enviaremailmensaje(email,mensaje)
             acciones.abrirlistareproduccion()
+            time.sleep(10)
+            pyautogui.screenshot(os.path.join(pathImg,f"abrirlista.png"))
+            time.sleep(15)
+            imagen= "abrirlista.png"
+            enviaremailreproduccion(email,imagen)            
             acciones.reproducir1(email)
             
         

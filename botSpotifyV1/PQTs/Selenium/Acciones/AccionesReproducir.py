@@ -68,13 +68,13 @@ class Acciones(BaseAcciones):
     
     def abrirlistareproduccion(self):
         xpathlistadereproduccion= (By.XPATH,'//*[@id="main"]/div/div[2]/nav/div[1]/div[2]/div/div[4]/div[4]/div/div/ul/div/div[2]/div/li') 
+                                             
         try:
             self.click(xpathlistadereproduccion)
         except:
             self.refreshweb()
-            time.sleep(10)
-            self.abrirlistareproduccion()
-
+            pass
+            
     def albumfollow(self,email):
         
         xpathfollow= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[2]/div[4]/div/div/div/div/button[1]') 
@@ -123,20 +123,13 @@ class Acciones(BaseAcciones):
             time.sleep(5)
             self.ir('https://open.spotify.com/artist/79y2edTYTHJtBpwcVuCnhH')
             time.sleep(10)
-            self.reproducir2(email)
+            self.refreshweb()
+            time.sleep(8)
+            self.click(xpathseemore)
 
         xpathplay= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[2]/div[4]/div/div/div/div/div/button')
-
-        visibleBotonPlay = self.explicitWaitElementoVisibility(25,xpathplay)
-        if visibleBotonPlay:
-            self.click(xpathplay)
-        else:
-                pyautogui.screenshot(os.path.join(pathImg,f"novisibleplaypng"))    
-                time.sleep(10)
-                imagen= "novisibleplay.png"
-                enviaremailreproduccion(email,imagen) 
-                self.refreshweb()
-                self.reproducir2(email)
+                              
+        self.click(xpathplay)
 
         time.sleep(10)
         pyautogui.screenshot(os.path.join(pathImg,f"play.png"))
