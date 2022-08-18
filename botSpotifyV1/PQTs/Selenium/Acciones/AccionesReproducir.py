@@ -129,7 +129,7 @@ class Acciones(BaseAcciones):
 
         visibleBotonPlay = self.explicitWaitElementoVisibility(25,xpathplay)
         if visibleBotonPlay:
-            self.click(visibleBotonPlay)
+            self.click(xpathplay)
         else:
                 pyautogui.screenshot(os.path.join(pathImg,f"novisibleplaypng"))    
                 time.sleep(10)
