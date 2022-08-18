@@ -72,6 +72,7 @@ class Acciones(BaseAcciones):
         try:
             self.click(xpathlistadereproduccion)
         except:
+            time.sleep(8)
             self.refreshweb()
             pass
             
@@ -92,17 +93,17 @@ class Acciones(BaseAcciones):
         xpathbotonplay= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/div/section/div[2]/div[2]/div[4]/div/div/div/div/div/button') 
         try:                        
             self.click(xpathbotonplay)
-            time.sleep(10)
-            pyautogui.screenshot(os.path.join(pathImg,f"reproduciendo.png"))
-            time.sleep(15)
-            imagen= "reproduciendo.png"
-            enviaremailreproduccion(email,imagen)
+
         except:
             self.refreshweb()
             time.sleep(10)
             self.click(xpathbotonplay)
-        pass
-
+            pass
+        time.sleep(10)
+        pyautogui.screenshot(os.path.join(pathImg,f"reproduciendo.png"))
+        time.sleep(15)
+        imagen= "reproduciendo.png"
+        enviaremailreproduccion(email,imagen)
         time.sleep(1080)
         pyautogui.screenshot(os.path.join(pathImg,f"18min.png"))
         time.sleep(10)
