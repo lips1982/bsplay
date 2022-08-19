@@ -68,12 +68,11 @@ class Acciones(BaseAcciones):
     
     def abrirlistareproduccion(self):
         xpathlistadereproduccion= (By.XPATH,'//*[@id="main"]/div/div[2]/nav/div[1]/div[2]/div/div[4]/div[4]/div/div/ul/div/div[2]/div/li') 
-                                             
+                                                
         try:
             self.click(xpathlistadereproduccion)
         except:
             time.sleep(4)
-            self.refreshweb()
             pass
             
     def reproducir1(self,email):
@@ -82,25 +81,23 @@ class Acciones(BaseAcciones):
             self.click(xpathbotonplay)
 
         except:
-            self.refreshweb()
-            time.sleep(10)
-            self.click(xpathbotonplay)
+            time.sleep(5)
             pass
         time.sleep(10)
-        #pyautogui.screenshot(os.path.join(pathImg,f"reproduciendo.png"))
-        #time.sleep(15)
-        #imagen= "reproduciendo.png"
+        pyautogui.screenshot(os.path.join(pathImg,f"reproduciendo.png"))
+        time.sleep(15)
+        imagen= "reproduciendo.png"
         #enviaremailreproduccion(email,imagen)
         time.sleep(1080)
-        #pyautogui.screenshot(os.path.join(pathImg,f"18min.png"))
+        pyautogui.screenshot(os.path.join(pathImg,f"18min.png"))
         #time.sleep(10)
         #imagen= "18min.png"
         #enviaremailreproduccion(email,imagen)
         time.sleep(540)
-        pyautogui.screenshot(os.path.join(pathImg,f"27min.png"))    
-        time.sleep(10)
-        imagen= "27min.png"
-        enviaremailreproduccion(email,imagen)
+        #pyautogui.screenshot(os.path.join(pathImg,f"27min.png"))    
+        #time.sleep(10)
+        #imagen= "27min.png"
+        #enviaremailreproduccion(email,imagen)
 
     def reproducir2(self,email):
         xpathseemore= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[3]/div[1]/div/div/button/div') 
@@ -123,7 +120,7 @@ class Acciones(BaseAcciones):
         pyautogui.screenshot(os.path.join(pathImg,f"play.png"))
         time.sleep(10)
         imagen= "play.png"
-        enviaremailreproduccion(email,imagen)
+        #enviaremailreproduccion(email,imagen)
         time.sleep(240)
         #pyautogui.screenshot(os.path.join(pathImg,f"4min.png"))    
         #time.sleep(10)
@@ -145,10 +142,10 @@ class Acciones(BaseAcciones):
         #imagen= "16min.png"
         #enviaremailreproduccion(email,imagen) 
         time.sleep(240)
-        pyautogui.screenshot(os.path.join(pathImg,f"22min.png"))    
-        time.sleep(10)
-        imagen= "22min.png"
-        enviaremailreproduccion(email,imagen) 
+        #pyautogui.screenshot(os.path.join(pathImg,f"22min.png"))    
+        #time.sleep(10)
+        #imagen= "22min.png"
+        #enviaremailreproduccion(email,imagen) 
 
 
     def reproducir3(self):

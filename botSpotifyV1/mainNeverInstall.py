@@ -100,12 +100,15 @@ def main():
             time.sleep(10)
             pyautogui.moveTo(1065, 745)
             pyautogui.moveTo(1065, 745)
-            pyautogui.click()            
-            pyautogui.click()
-            #time.sleep(2)            
-            #pyautogui.screenshot(os.path.join(pathImg,f"abrirlista.png"))
-            #time.sleep(15)
-            #imagen= "abrirlista.png"
+            pyautogui.click(1065, 745)            
+            time.sleep(2)
+            pyautogui.moveTo(100, 700)
+            pyautogui.click(100,700)              
+            pyautogui.click(100,700)  
+            time.sleep(2)            
+            pyautogui.screenshot(os.path.join(pathImg,f"abrirlista.png"))
+            time.sleep(15)
+            imagen= "abrirlista.png"
             #enviaremailreproduccion(email,imagen)            
             acciones.reproducir1(email)
             
@@ -114,7 +117,12 @@ def main():
             acciones.ir('https://open.spotify.com/artist/79y2edTYTHJtBpwcVuCnhH')
             time.sleep(10)
             pyautogui.moveTo(1065, 745)
-            pyautogui.click()             
+            pyautogui.click(1065, 745)    
+            time.sleep(2)
+            pyautogui.moveTo(100, 700)
+            pyautogui.moveTo(100, 700)
+            pyautogui.click(100,700)    
+            pyautogui.click(100,700)       
             with open(os.path.join(pathImg,f"mensaje.txt"), 'w') as f:
                 f.write("Reproduciendo el album") 
             #mensaje= "mensaje.txt"
