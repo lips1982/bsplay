@@ -84,10 +84,10 @@ def main():
         acciones.sleep(10)    
         acciones.refreshweb()
         acciones.sleep(10)
-        pyautogui.screenshot(os.path.join(pathImg,"loging.png"))
-        acciones.sleep(15)
-        mensaje= f"loging.png"
-        enviaremailmensaje(email,mensaje)        
+        #pyautogui.screenshot(os.path.join(pathImg,"loging.png"))
+        #acciones.sleep(15)
+        #mensaje= f"loging.png"
+        #enviaremailmensaje(email,mensaje)        
         pyautogui.moveTo(1866, 1223)
         pyautogui.click()
         valor= random.randint(1,2)
@@ -141,8 +141,8 @@ def main():
         db.iniciarDB()
         db.updateOne("accountmanager",id,"acc_estado",9)
         db.cerrarConexion()
-        error= "error.txt"
-        enviaremailerror(email,error)
+        #error= "error.txt"
+        #enviaremailerror(email,error)
 
 
      
@@ -155,8 +155,8 @@ if __name__ == '__main__':
         with open(os.path.join(pathImg,f"logerror.txt"), 'w') as f:
             f.write(str(e))
         error= "logerror.txt"
-        email="mainerror"
-        enviaremailerror(email,error)
+        #email="mainerror"
+        #nviaremailerror(email,error)
 #acc 1: registrada ok
 #acc 1, pais COL , >>>>  acc 1 pais US
 #acc 5: lista reproduccion ok
