@@ -68,28 +68,33 @@ class Acciones(BaseAcciones):
     
     def abrirlistareproduccion(self):
         xpathlistadereproduccion= (By.XPATH,'//*[@id="main"]/div/div[2]/nav/div[1]/div[2]/div/div[4]/div[4]/div/div/ul/div/div[2]/div/li') 
-                                                
+                                             
         try:
             self.click(xpathlistadereproduccion)
         except:
             time.sleep(4)
-            pass
-            
+            self.refreshweb()
+            time.sleep(8)
+            self.click(xpathlistadereproduccion)
+
     def reproducir1(self,email):
         xpathbotonplay= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/div/section/div[2]/div[2]/div[4]/div/div/div/div/div/button') 
+        
         try:                        
             self.click(xpathbotonplay)
 
         except:
-            time.sleep(5)
+            self.refreshweb()
+            time.sleep(10)
+            self.click(xpathbotonplay)
             pass
         time.sleep(10)
-        pyautogui.screenshot(os.path.join(pathImg,f"reproduciendo.png"))
-        time.sleep(15)
-        imagen= "reproduciendo.png"
+        #pyautogui.screenshot(os.path.join(pathImg,f"reproduciendo.png"))
+        #time.sleep(15)
+        #imagen= "reproduciendo.png"
         #enviaremailreproduccion(email,imagen)
         time.sleep(1080)
-        pyautogui.screenshot(os.path.join(pathImg,f"18min.png"))
+        #pyautogui.screenshot(os.path.join(pathImg,f"18min.png"))
         #time.sleep(10)
         #imagen= "18min.png"
         #enviaremailreproduccion(email,imagen)

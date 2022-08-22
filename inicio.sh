@@ -1,4 +1,23 @@
 #!/bin/bash
+clear
+echo "INICIANDO"
+sudo service docker stop
+
+while getopts k: option
+do 
+    case "${option}"
+        in
+        k)SERVERNAME=${OPTARG};;
+
+    esac
+done
+echo "KEY_ACCES : $SERVERNAME"
+
+sed -i "s|SERVERNAME|${SERVERNAME}|g" daemon.json
+
+sudo cp -f daemon.json /etc/docker/
+
+sudo service docker start
 
 PUBLIC_IP=`wget http://ipecho.net/plain -O - -q ; echo`
 echo "$PUBLIC_IP"
