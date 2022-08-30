@@ -54,6 +54,7 @@ def main():
 
     print (email, id,db,passw)
 
+
     def iniciarSpotify(email,password):
         
         driver = BaseConexion().conexionChrome()
@@ -73,15 +74,31 @@ def main():
 
         
         returnLoginSpotify= acciones.loginSpotify(email,password)
-        while returnLoginSpotify== False:
-            returnLoginSpotify= acciones.loginSpotify(email,password)
-    
-        
-    
-        if returnLoginSpotify == True:
-            print(f"Hilo {email} - SinginSpotify {returnLoginSpotify}")
+        i=0
+        while i <=3:
+            if returnLoginSpotify== False:
+                returnLoginSpotify= acciones.loginSpotify(email,password)
+                i+=1
+            else:
+                i=4
+        time.sleep(10)    
+        ckecloging= acciones.checklogingok()
+        if ckecloging == True:
+            db.iniciarDB()
+            db.updateOne("accountmanager",id,"ckeclog","logfail")
+            db.updateOne("accountmanager",id,"acc_estado",9)
+            db.cerrarConexion()
+            exit()
 
-        acciones.sleep(10)    
+        if ckecloging == False:
+            #print(f"Hilo {email} - SinginSpotify {returnLoginSpotify}")
+            #pyautogui.screenshot(os.path.join(pathImg,f"01-{email}-loging.png"))
+            #loging= f"01-{email}-loging.png"
+            #enviaremailerror(email,loging, password)  
+            db.iniciarDB()
+            db.updateOne("accountmanager",id,"ckeclog","logingok")
+            db.cerrarConexion()
+        acciones.sleep(4)
         acciones.refreshweb()
         acciones.sleep(10)
         #pyautogui.screenshot(os.path.join(pathImg,"loging.png"))
@@ -106,9 +123,9 @@ def main():
             pyautogui.click(100,700)              
             pyautogui.click(100,700)  
             time.sleep(2)            
-            pyautogui.screenshot(os.path.join(pathImg,f"abrirlista.png"))
-            time.sleep(15)
-            imagen= "abrirlista.png"
+            #pyautogui.screenshot(os.path.join(pathImg,f"abrirlista.png"))
+            #time.sleep(15)
+            #imagen= "abrirlista.png"
             #enviaremailreproduccion(email,imagen)            
             acciones.reproducir1(email)
             

@@ -31,7 +31,13 @@ class Acciones(BaseAcciones):
         except:
             self.salir()
             return False
-
+    def checklogingok(self):
+        xpatherrorpass = (By.XPATH,'//*[@id="root"]/div/div[2]/div/div/div[1]/span')
+        visibleErrorloging = self.explicitWaitElementoVisibility(10,xpatherrorpass)
+        if visibleErrorloging:
+            return True
+        else:
+            return False
 
     def loginSpotify(self,cuenta,password):
         try:
@@ -89,10 +95,10 @@ class Acciones(BaseAcciones):
             self.click(xpathbotonplay)
             pass
         time.sleep(10)
-        #pyautogui.screenshot(os.path.join(pathImg,f"reproduciendo.png"))
-        #time.sleep(15)
-        #imagen= "reproduciendo.png"
-        #enviaremailreproduccion(email,imagen)
+        pyautogui.screenshot(os.path.join(pathImg,f"reproduciendo.png"))
+        time.sleep(15)
+        imagen= "reproduciendo.png"
+        enviaremailreproduccion(email,imagen)
         time.sleep(1080)
         #pyautogui.screenshot(os.path.join(pathImg,f"18min.png"))
         #time.sleep(10)
@@ -125,7 +131,7 @@ class Acciones(BaseAcciones):
         pyautogui.screenshot(os.path.join(pathImg,f"play.png"))
         time.sleep(10)
         imagen= "play.png"
-        #enviaremailreproduccion(email,imagen)
+        enviaremailreproduccion(email,imagen)
         time.sleep(240)
         #pyautogui.screenshot(os.path.join(pathImg,f"4min.png"))    
         #time.sleep(10)
