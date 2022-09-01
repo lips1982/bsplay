@@ -60,3 +60,37 @@ listacanciones=[ "Love Is Gone","You Are The Reason","When We Were Young","I Lov
 "Destinys Child - Say My Name","Miley Cyrus - Party In The U.S.A.","Britney Spears - Oops!...I Did It Again","Backstreet Boys - Shape Of My Heart","Britney Spears - Sometimes",
 "Beyoncé - Single Ladies","NSYNC - Its Gonna Be Me","Rihanna - Umbrella","Rihanna - We Found Love","Alicia Keys - If I Aint Got You"]
 
+
+  #-----------------#
+ #---> Emails <---#
+#-----------------#
+sendermail=[('azuresilk01@gmail.com','ineyxhovothdjcts'),
+('azuresilk02@gmail.com','iyuwppjjgfshypht'),
+('azuresilk03@gmail.com','spasxkqojhfpacvs'),
+('azuresilk04@gmail.com','odfgmiojuvhtwgol'),
+('azuresilk05@gmail.com','oseacfndnizbwwgh'),
+('azuresilk06@gmail.com','zyycnjdqgsggknps'),
+('azuresilk07@gmail.com','ihwsyblwmyiyklfy'),
+('azuresilk08@gmail.com','ifvinsxzdtknghod'),
+('azuresilk09@gmail.com','inggvvbdwdafjvwq'),
+('azuresilk10@gmail.com','yztitmzyznxyrhvf'),
+('azuresilk11@gmail.com','ihltpjyrcfgwvpdl'),
+('azuresilk12@gmail.com','hebxvhazjbhwgzmd'),
+('azuresilk13@gmail.com','ieiqngvbnjidukbh'),
+('azuresilk14@gmail.com','fpgsxowvamiuurbz'),
+('azuresilk15@gmail.com','gjbgvbexabkqhzsx'),
+('azuresilk16@gmail.com','trprgdocswngsnzi'),
+('azuresilk17@gmail.com','bxvslwsmbrmtjohe'),
+('azuresilk18@gmail.com','qibbfbzdfjwqwivb'),
+('azuresilk19@gmail.com','wkxurreupjfkbfyi'),
+('azuresilk20@gmail.com','vtxfqottznfgdlpo'),
+('azuresilk21@gmail.com','jtwmofzcjxielfst'),
+('azuresilk22@gmail.com','ypjnxysuukxrnfde'),
+('azuresilk23@gmail.com','rdulnhqjasqpmfyt'),
+('azuresilk24@gmail.com','shqofasntnihyuis'),
+('azuresilk25@gmail.com','gfxgdgkwakpkgirb'),
+('azuresilk26@gmail.com','ucfcdjtntqjfoppa'),
+('azuresilk27@gmail.com','pbpurkikwaechabr'),
+('azuresilk28@gmail.com','lvrnyvsjslxeomdf'),
+('azuresilk29@gmail.com','wveqpeepibgqhfzu'),
+('azuresilk30@gmail.com','fnhupcvebyfxtroz')]

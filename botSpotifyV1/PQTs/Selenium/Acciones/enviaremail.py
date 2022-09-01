@@ -1,14 +1,18 @@
 import datetime
 import os
+import random
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 from PQTs.Paths import pathImg
+from PQTs.Utilizar import sendermail
 
 def enviaremailerror(email,adjunto):
-    remitente = 'azuresilk02@gmail.com'
+    emailsender=random.choice(sendermail)
+    corre, contrase = emailsender    
+    remitente = corre
     destinatarios = ['azuresilkmain@gmail.com']
     asunto = f'Error en : {email}'
     cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))}"
@@ -48,7 +52,8 @@ def enviaremailerror(email,adjunto):
 
     # Iniciamos sesión en el servidor
     ##sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
-    sesion_smtp.login('azuresilk02@gmail.com','iyuwppjjgfshypht')
+
+    sesion_smtp.login(corre,contrase)
     
     # Convertimos el objeto mensaje a texto
     texto = mensaje.as_string()
@@ -61,10 +66,12 @@ def enviaremailerror(email,adjunto):
 
 
 def enviaremailreproduccion(email,adjunto):
-    remitente = 'azuresilk02@gmail.com'
+    emailsender=random.choice(sendermail)
+    corre, contrase = emailsender    
+    remitente = corre
     destinatarios = ['azuresilkmain@gmail.com']
     asunto = f'Reproduccion ok : {email}'
-    cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))}"
+    cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))} {email}"
     ruta_adjunto = (os.path.join(pathImg,f'{adjunto}'))
     nombre_adjunto = f'{adjunto}'
 
@@ -101,7 +108,7 @@ def enviaremailreproduccion(email,adjunto):
 
     # Iniciamos sesión en el servidor
     #sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
-    sesion_smtp.login('azuresilk02@gmail.com','iyuwppjjgfshypht')
+    sesion_smtp.login(corre,contrase)
     
    
     # Convertimos el objeto mensaje a texto
@@ -115,7 +122,9 @@ def enviaremailreproduccion(email,adjunto):
 
 
 def enviaremailmensaje(email,adjunto):
-    remitente = 'azuresilk02@gmail.com'
+    emailsender=random.choice(sendermail)
+    corre, contrase = emailsender    
+    remitente = corre
     destinatarios = ['azuresilkmain@gmail.com']
     asunto = f'Reproduciendo mensaje: {email}'
     cuerpo = f"{str(datetime.datetime.now().strftime('%H-%M-%S'))}"
@@ -155,7 +164,8 @@ def enviaremailmensaje(email,adjunto):
 
     # Iniciamos sesión en el servidor
     #sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
-    sesion_smtp.login('azuresilk02@gmail.com','iyuwppjjgfshypht')
+
+    sesion_smtp.login(corre,contrase)
 
     # Convertimos el objeto mensaje a texto
     texto = mensaje.as_string()

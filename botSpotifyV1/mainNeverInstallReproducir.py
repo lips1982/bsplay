@@ -38,7 +38,7 @@ def main():
     passw=[]
 
     result= db.findby2("accountmanager","acc_estado",5,"pais","US")
-
+    
     for elem in result:
         email= (elem["email"])
         id=(elem["_id"])
@@ -49,8 +49,11 @@ def main():
         #    db.updateOne("accountmanager",elemid,"creacionlistasentrenamiento",2)
         db.cerrarConexion()
     
+    valor= random.randint(5,30)
+    time.sleep(valor)
 
     print (email, id,db,passw)
+
 
     def iniciarSpotify(email,password):
         
@@ -71,29 +74,78 @@ def main():
 
         
         returnLoginSpotify= acciones.loginSpotify(email,password)
-        while returnLoginSpotify== False:
-            returnLoginSpotify= acciones.loginSpotify(email,password)
-    
-        pyautogui.screenshot(os.path.join(pathImg,f"01-{email}-loging.png"))
-    
-        if returnLoginSpotify == True:
-            print(f"Hilo {email} - SinginSpotify {returnLoginSpotify}")
+        i=0
+        while i <=3:
+            if returnLoginSpotify== False:
+                returnLoginSpotify= acciones.loginSpotify(email,password)
+                i+=1
+            else:
+                i=4
+        time.sleep(10)    
+        ckecloging= acciones.checklogingok()
+        if ckecloging == True:
+            db.iniciarDB()
+            db.updateOne("accountmanager",id,"ckeclog","logfail")
+            db.updateOne("accountmanager",id,"acc_estado",9)
+            db.cerrarConexion()
+            exit()
 
-        acciones.sleep(10)    
+        if ckecloging == False:
+            #print(f"Hilo {email} - SinginSpotify {returnLoginSpotify}")
+            #pyautogui.screenshot(os.path.join(pathImg,f"01-{email}-loging.png"))
+            #loging= f"01-{email}-loging.png"
+            #enviaremailerror(email,loging, password)  
+            db.iniciarDB()
+            db.updateOne("accountmanager",id,"ckeclog","logingok")
+            db.cerrarConexion()
+        acciones.sleep(4)
         acciones.refreshweb()
-
         acciones.sleep(10)
-        
+        #pyautogui.screenshot(os.path.join(pathImg,"loging.png"))
+        #acciones.sleep(15)
+        #mensaje= f"loging.png"
+        #enviaremailmensaje(email,mensaje)        
+        pyautogui.moveTo(1866, 1223)
+        pyautogui.click()
         valor= random.randint(1,2)
         if valor == 1:  #reproducir lista
+            with open(os.path.join(pathImg,f"mensaje.txt"), 'w') as f:
+                f.write("Reproduciendo la lista ") 
+            mensaje= "mensaje.txt"
+            #enviaremailmensaje(email,mensaje)
             acciones.abrirlistareproduccion()
-            acciones.reproducir1()
+            time.sleep(10)
+            pyautogui.moveTo(1065, 745)
+            pyautogui.moveTo(1065, 745)
+            pyautogui.click(1065, 745)            
+            time.sleep(2)
+            pyautogui.moveTo(100, 700)
+            pyautogui.click(100,700)              
+            pyautogui.click(100,700)  
+            time.sleep(2)            
+            #pyautogui.screenshot(os.path.join(pathImg,f"abrirlista.png"))
+            #time.sleep(15)
+            #imagen= "abrirlista.png"
+            #enviaremailreproduccion(email,imagen)            
+            acciones.reproducir1(email)
             
         
         elif valor==2: #reproducir directamente del album
             acciones.ir('https://open.spotify.com/artist/79y2edTYTHJtBpwcVuCnhH')
-            acciones.albumfollow()
-            acciones.reproducir2()
+            time.sleep(10)
+            pyautogui.moveTo(1065, 745)
+            pyautogui.click(1065, 745)    
+            time.sleep(2)
+            pyautogui.moveTo(100, 700)
+            pyautogui.moveTo(100, 700)
+            pyautogui.click(100,700)    
+            pyautogui.click(100,700)       
+            with open(os.path.join(pathImg,f"mensaje.txt"), 'w') as f:
+                f.write("Reproduciendo el album") 
+            #mensaje= "mensaje.txt"
+            #enviaremailmensaje(email,mensaje)
+            time.sleep(10)
+            acciones.reproducir2(email)
             
         elif valor ==3:
             acciones.reproducir3()
@@ -114,8 +166,8 @@ def main():
         db.iniciarDB()
         db.updateOne("accountmanager",id,"acc_estado",9)
         db.cerrarConexion()
-        error= "error.txt"
-        enviaremailerror(email,error)
+        #error= "error.txt"
+        #enviaremailerror(email,error)
 
 
      
@@ -127,7 +179,9 @@ if __name__ == '__main__':
     except Exception as e:
         with open(os.path.join(pathImg,f"logerror.txt"), 'w') as f:
             f.write(str(e))
-
+        error= "logerror.txt"
+        #email="mainerror"
+        #nviaremailerror(email,error)
 #acc 1: registrada ok
 #acc 1, pais COL , >>>>  acc 1 pais US
 #acc 5: lista reproduccion ok

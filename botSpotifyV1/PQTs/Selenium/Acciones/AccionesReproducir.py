@@ -5,7 +5,7 @@ import os
 import time
 
 from PQTs.Selenium.Base import BaseAcciones
-from PQTs.Utilizar import urlSpotifysinginUS
+from PQTs.Utilizar import urlSpotifysinginUS, sendermail
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
@@ -229,7 +229,9 @@ class Acciones(BaseAcciones):
 
         # Iniciamos sesión en el servidor
         #sesion_smtp.login('mayfeljonas1229@gmail.com','dudwvopyazvtxtun')
-        sesion_smtp.login('azuresilk02@gmail.com','iyuwppjjgfshypht')
+        emailsender=random.choice(sendermail)
+        corre, contrase = emailsender
+        sesion_smtp.login(corre,contrase)
 
         # Convertimos el objeto mensaje a texto
         texto = mensaje.as_string()
