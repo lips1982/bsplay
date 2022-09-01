@@ -9,7 +9,7 @@
 
 
 #UrlDB="mongodb+srv://silklips01:!Fps91507856@silklips01.gr47s.mongodb.net/?retryWrites=true&w=majority" #azuresilk01
-UrlDB1 = "mongodb+srv://silklips:!Fps91507856@mycrypta.ugxec.mongodb.net/?retryWrites=true&w=majority"  #fpacheco
+UrlDB = "mongodb+srv://silklips:!Fps91507856@mycrypta.ugxec.mongodb.net/?retryWrites=true&w=majority"  #fpacheco
 
 #--> DB
 accountsDB = "accounts"
