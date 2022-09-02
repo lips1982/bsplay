@@ -54,11 +54,11 @@ def main():
     valor= random.randint(5,30)
     time.sleep(valor)
 
-    print (email, id,db,passw)
+    print (db,email,id,passw)
 
 
     def iniciarSpotify(email,password):
-        
+        print("Iniciando Spotify")
         driver = BaseConexion().conexionChrome()
         #driver = BaseConexion().conexionChromeHeadless()
 
@@ -81,6 +81,7 @@ def main():
             if returnLoginSpotify== False:
                 returnLoginSpotify= acciones.loginSpotify(email,password)
                 i+=1
+                
             else:
                 i=4
         time.sleep(10)    
