@@ -91,6 +91,11 @@ def main():
             db.updateOne("accountmanager",id,"ckeclog","logfail")
             db.updateOne("accountmanager",id,"acc_estado",9)
             db.cerrarConexion()
+            pyautogui.screenshot(os.path.join(pathImg,f"Errorlogin.png"))
+            time.sleep(15)
+            imagen= "Errorlogin.png"
+            enviaremailerror(email,imagen,"Loging ERROR") 
+            time.sleep(5)           
             exit()
 
         if ckecloging == False:
@@ -177,6 +182,10 @@ def main():
         db.iniciarDB()
         db.updateOne("accountmanager",id,"acc_estado",9)
         db.cerrarConexion()
+        pyautogui.screenshot(os.path.join(pathImg,f"Errorlogin.png"))
+        time.sleep(15)
+        imagen= "Errorlogin.png"
+        enviaremailreproduccion(email,imagen)            
         #error= "error.txt"
         #enviaremailerror(email,error)
 
