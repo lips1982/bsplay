@@ -94,21 +94,13 @@ class Acciones(BaseAcciones):
             time.sleep(10)
             self.click(xpathbotonplay)
             pass
-        time.sleep(10)
-        pyautogui.screenshot(os.path.join(pathImg,f"reproduciendo.png"))
+        time.sleep(1500)
+        pyautogui.screenshot(os.path.join(pathImg,f"PlayList.png"))
         time.sleep(15)
-        imagen= "reproduciendo.png"
+        imagen= "PlayList.png"
         enviaremailreproduccion(email,imagen)
-        time.sleep(1080)
-        #pyautogui.screenshot(os.path.join(pathImg,f"18min.png"))
-        #time.sleep(10)
-        #imagen= "18min.png"
-        #enviaremailreproduccion(email,imagen)
-        time.sleep(540)
-        #pyautogui.screenshot(os.path.join(pathImg,f"27min.png"))    
-        #time.sleep(10)
-        #imagen= "27min.png"
-        #enviaremailreproduccion(email,imagen)
+        time.sleep(1200)
+
 
     def reproducir2(self,email):
         xpathseemore= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[3]/div[1]/div/div/button/div') 
@@ -127,66 +119,34 @@ class Acciones(BaseAcciones):
                               
         self.click(xpathplay)
 
+        time.sleep(1500)
+        pyautogui.screenshot(os.path.join(pathImg,f"PlayAlbum.png"))
         time.sleep(10)
-        pyautogui.screenshot(os.path.join(pathImg,f"play.png"))
-        time.sleep(10)
-        imagen= "play.png"
+        imagen= "PlayAlbum.png"
         enviaremailreproduccion(email,imagen)
-        time.sleep(240)
-        #pyautogui.screenshot(os.path.join(pathImg,f"4min.png"))    
-        #time.sleep(10)
-        #imagen= "4min.png"
-        #enviaremailreproduccion(email,imagen)        
-        time.sleep(240)
-        #pyautogui.screenshot(os.path.join(pathImg,f"8min.png"))    
-        #time.sleep(10)
-        #imagen= "8min.png"
-        #enviaremailreproduccion(email,imagen)         
-        time.sleep(240)
-        #pyautogui.screenshot(os.path.join(pathImg,f"12min.png"))    
-        #time.sleep(10)
-        #imagen= "12min.png"
-        #enviaremailreproduccion(email,imagen) 
-        time.sleep(240)
-        #pyautogui.screenshot(os.path.join(pathImg,f"16min.png"))    
-        #time.sleep(10)
-        #imagen= "16min.png"
-        #enviaremailreproduccion(email,imagen) 
-        time.sleep(240)
-        #pyautogui.screenshot(os.path.join(pathImg,f"22min.png"))    
-        #time.sleep(10)
-        #imagen= "22min.png"
-        #enviaremailreproduccion(email,imagen) 
+
+        time.sleep(1200)
 
 
-    def reproducir3(self):
+
+    def reproducir3(self,email):
         xpathbotonplay= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/div/section/div[2]/div[2]/div[4]/div/div/div/div/div/button') 
+        
         try:                        
             self.click(xpathbotonplay)
+
         except:
             self.refreshweb()
             time.sleep(10)
             self.click(xpathbotonplay)
-        pass
+            pass
+        time.sleep(1500)
+        pyautogui.screenshot(os.path.join(pathImg,f"FriendPlayList.png"))
+        time.sleep(15)
+        imagen= "FriendPlayList.png"
+        enviaremailreproduccion(email,imagen)
+        time.sleep(1200)
 
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"3min.png"))
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"6min.png"))
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"9min.png"))
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"12min.png"))    
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"15min.png"))
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"18min.png"))    
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"21min.png"))    
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"24min.png"))    
-        time.sleep(180)
-        pyautogui.screenshot(os.path.join(pathImg,f"27min.png"))    
 
     def enviardatos(self,email):
         remitente = 'azuresilk02@gmail.com'

@@ -12,6 +12,7 @@ import random
 from PQTs.Selenium.Acciones.AccionesReproducir import Acciones
 from PQTs.Selenium.Acciones.enviaremail import *
 from datetime import datetime
+from PQTs.Utilizar import poollistas
 def main():
 
 
@@ -140,15 +141,23 @@ def main():
             pyautogui.moveTo(100, 700)
             pyautogui.click(100,700)    
             pyautogui.click(100,700)       
-            with open(os.path.join(pathImg,f"mensaje.txt"), 'w') as f:
-                f.write("Reproduciendo el album") 
-            #mensaje= "mensaje.txt"
-            #enviaremailmensaje(email,mensaje)
+
             time.sleep(10)
             acciones.reproducir2(email)
             
         elif valor ==3:
-            acciones.reproducir3()
+            urlLista=  random.choice(poollistas)
+            acciones.ir(urlLista)
+            time.sleep(10)
+            pyautogui.moveTo(1065, 745)
+            pyautogui.click(1065, 745)    
+            time.sleep(2)
+            pyautogui.moveTo(100, 700)
+            pyautogui.moveTo(100, 700)
+            pyautogui.click(100,700)    
+            pyautogui.click(100,700)    
+
+            acciones.reproducir3(email)
 
         
 
@@ -180,15 +189,7 @@ if __name__ == '__main__':
         with open(os.path.join(pathImg,f"logerror.txt"), 'w') as f:
             f.write(str(e))
         error= "logerror.txt"
-        #email="mainerror"
-        #nviaremailerror(email,error)
-#acc 1: registrada ok
-#acc 1, pais COL , >>>>  acc 1 pais US
-#acc 5: lista reproduccion ok
-#acc 3: cuenta con error al crear la lista de reproduccion
-#acc 7: inicia reproducir
-#acc 10: reproduccion terminada
-#acc 9: cuenta con error al reproducir
+
 
 
 
