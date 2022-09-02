@@ -1,3 +1,4 @@
 { 
-   "graph": "/home/SERVERNAME/docker" 
+   "graph": "/home/SERVERNAME/docker" ,
+   "log-driver": "local"
 }

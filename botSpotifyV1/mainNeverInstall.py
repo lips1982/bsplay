@@ -108,7 +108,7 @@ def main():
         #enviaremailmensaje(email,mensaje)        
         pyautogui.moveTo(1866, 1223)
         pyautogui.click()
-        valor= random.randint(1,2)
+        valor= random.randint(1,3)
         if valor == 1:  #reproducir lista
             with open(os.path.join(pathImg,f"mensaje.txt"), 'w') as f:
                 f.write("Reproduciendo la lista ") 
