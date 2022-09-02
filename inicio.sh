@@ -29,4 +29,4 @@ docker build -t display .
 
 
 screen -S docker -d -m bash -c "docker run -it --rm -v $PWD/img:/app/Almacenamiento/img display"
-screen -S docker -d -m bash -c "docker logs -f"
+#screen -S docker -d -m bash -c "docker logs -f"
