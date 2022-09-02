@@ -13,7 +13,7 @@ RUN apt-get update && \
 RUN apt-get -y install unzip wget gpg && \
     wget -P /root/ https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get -y install -f /root/google-chrome*.deb && \
-    wget -P /root/ https://chromedriver.storage.googleapis.com/104.0.5112.29/chromedriver_linux64.zip && \
+    wget -P /root/ https://chromedriver.storage.googleapis.com/105.0.5195.52/chromedriver_linux64.zip && \
     unzip /root/chromedriver_linux64.zip -d /root/ && \
     mv /root/chromedriver /usr/bin/
 

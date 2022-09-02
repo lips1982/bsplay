@@ -64,7 +64,8 @@ listacanciones=[ "Love Is Gone","You Are The Reason","When We Were Young","I Lov
   #-----------------#
  #---> Emails <---#
 #-----------------#
-sendermail=[('azuresilk01@gmail.com','ineyxhovothdjcts'),
+sendermail=[
+('azuresilk01@gmail.com','ineyxhovothdjcts'),
 ('azuresilk02@gmail.com','iyuwppjjgfshypht'),
 ('azuresilk03@gmail.com','spasxkqojhfpacvs'),
 ('azuresilk04@gmail.com','odfgmiojuvhtwgol'),
