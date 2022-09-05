@@ -185,7 +185,7 @@ def main():
         pyautogui.screenshot(os.path.join(pathImg,f"Errorlogin.png"))
         time.sleep(15)
         imagen= "Errorlogin.png"
-        enviaremailreproduccion(email,imagen)            
+        enviaremailerror(email,imagen,e)            
         #error= "error.txt"
         #enviaremailerror(email,error)
 
