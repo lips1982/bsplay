@@ -39,7 +39,7 @@ def main():
     id=[]
     passw=[]
 
-    result= db.findby2("accountmanager","acc_estado",5,"pais","US")
+    result= db.findby2("accountmanager","acc_estado",5)
     
     for elem in result:
         email= (elem["email"])
