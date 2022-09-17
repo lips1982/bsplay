@@ -87,7 +87,7 @@ sendermail=[
 ('azuresilk20@gmail.com','vtxfqottznfgdlpo'),
 ('azuresilk21@gmail.com','jtwmofzcjxielfst'),
 ('azuresilk22@gmail.com','ypjnxysuukxrnfde'),
-('azuresilk23@gmail.com','rdulnhqjasqpmfyt'),
+('axuredilk23@gmail.com','rdulnhqjasqpmfyt'),
 ('azuresilk24@gmail.com','shqofasntnihyuis'),
 ('azuresilk25@gmail.com','gfxgdgkwakpkgirb'),
 ('azuresilk26@gmail.com','ucfcdjtntqjfoppa'),
