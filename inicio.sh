@@ -23,7 +23,7 @@ PUBLIC_IP=`wget http://ipecho.net/plain -O - -q ; echo`
 echo "$PUBLIC_IP"
 
 sed -i "s|REEMPLAZARPUBLICIP|${PUBLIC_IP}|g" botSpotifyV1/mainNeverInstall.py
-
+sudo apt-get -y install screen
 
 docker build -t display .
 
