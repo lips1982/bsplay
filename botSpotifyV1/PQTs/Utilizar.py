@@ -6,12 +6,14 @@
 #-----------------#
 
 
+UrlDB = "mongodb+srv://silklips:!Fps91507856@mycrypta.ugxec.mongodb.net/{retryWrites=true&w=majority"  #fpacheco12229
+
+#UrlDB=  "mongodb+srv://silklips01:!Fps91507856@silklips01.gr47s.mongodb.net/{retryWrites=true&w=majority" #azuresilk01
+#UrlDB=  "mongodb+srv://azuresilk02:!Asdf2022@cluster0.qvcqgrk.mongodb.net/?retryWrites=true&w=majority"# azuresilk02
+#UrlDB=  "mongodb+srv://azuresilk03:!Asdf2022@azuresilk03.e83zmep.mongodb.net/?retryWrites=true&w=majority"# azuresilk03
+#UrlDB=  "mongodb+srv://azuresilk04:!Asdf2022@azuresilk04.zw7be0w.mongodb.net/?retryWrites=true&w=majority"# azuresilk04
 
 
-
-UrlDB = "mongodb+srv://silklips:!Fps91507856@mycrypta.ugxec.mongodb.net/?retryWrites=true&w=majority"  #fpacheco
-#UrlDB="mongodb+srv://silklips01:!Fps91507856@silklips01.gr47s.mongodb.net/?retryWrites=true&w=majority" #azuresilk01
-#--> DB
 accountsDB = "accounts"
 
 #--> colecciones
