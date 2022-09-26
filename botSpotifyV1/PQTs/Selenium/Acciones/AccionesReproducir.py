@@ -5,10 +5,10 @@ import os
 import time
 
 from PQTs.Selenium.Base import BaseAcciones
-from PQTs.Utilizar import urlSpotifysinginUS, sendermail
+from PQTs.Utilizar import urlSpotifysinginUS, sendermail, miscaciones
 
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
+
 from PQTs.Paths import pathImg
 import pyautogui
 import random
@@ -73,34 +73,29 @@ class Acciones(BaseAcciones):
             return False
     
     def abrirlistareproduccion(self):
-        xpathlistadereproduccion= (By.XPATH,'//*[@id="main"]/div/div[2]/nav/div[1]/div[2]/div/div[4]/div[4]/div/div/ul/div/div[2]/div/li') 
-                                             
-        try:
+        xpathlistadereproduccion= (By.XPATH,"//li[@role = 'listitem']/a") 
+        xpathbotonplay= (By.XPATH,"//button[@data-testid = 'play-button' and @class = 'Button-qlcn5g-0 kgFBvD']")
+        xpathlistacanciones=(By.XPATH,"//a[@data-testid='internal-track-link']/div")
+        listadereproduccion = self.explicitWaitElementoVisibility(15,xpathlistadereproduccion)
+        if listadereproduccion:
             self.click(xpathlistadereproduccion)
-        except:
-            time.sleep(4)
+            listaxpathbotonplay = self.explicitWaitElementoVisibility(15,xpathbotonplay)
+            if listaxpathbotonplay:
+                self.click(xpathbotonplay)
+                print("reproduciendo lista OK")
+            else:
+                self.refreshweb()
+                self.abrirlistareproduccion()    
+        else:          
             self.refreshweb()
-            time.sleep(8)
-            self.click(xpathlistadereproduccion)
+            self.abrirlistareproduccion()
+        time.sleep(20)
 
-    def reproducir1(self,email):
-        xpathbotonplay= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/div/section/div[2]/div[2]/div[4]/div/div/div/div/div/button') 
-        
-        try:                        
-            self.click(xpathbotonplay)
-
-        except:
-            self.refreshweb()
-            time.sleep(10)
-            self.click(xpathbotonplay)
-            pass
-        time.sleep(1500)
-        pyautogui.screenshot(os.path.join(pathImg,f"PlayList.png"))
-        time.sleep(15)
-        imagen= "PlayList.png"
-        enviaremailreproduccion(email,imagen)
-        time.sleep(1200)
-
+        listacanciones = self.explicitWaitElementoVisibility(15,xpathlistacanciones)
+        if listacanciones:
+            listadecanciones= self.elementos(xpathlistacanciones)
+            for elem in listacanciones:
+                self.texto(elem)
 
     def reproducir2(self,email):
         xpathseemore= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[3]/div[1]/div/div/button/div') 

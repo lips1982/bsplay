@@ -61,7 +61,9 @@ class BaseAcciones():
     def findElement(self, el):
         elemento = self.driver.find_element(*el)
         return elemento
-
+    def findElements(self, el):
+        elemento = self.driver.find_elements(*el)
+        return elemento
     def selecionarlista(self, el,valor):
         el.select_by_value(valor)
          
@@ -100,7 +102,9 @@ class BaseAcciones():
     def click(self, el):
         self.findElement(el).click()
         self.sleep(0.8)
-
+    def elementos(self, el):
+        return self.findElements(el)
+        self.sleep(0.8)
     def cantidadWindowHandle(self):
         return self.driver.window_handles
 

@@ -28,16 +28,16 @@ def main():
     #pyautogui._pyautogui_x11._display = Xlib.display.Display(":0")
 
     pyautogui._pyautogui_x11._display = Xlib.display.Display(os.environ['DISPLAY'])
-    time.sleep (random.randint(1,4))
     hilos=1
-    time.sleep (random.randint(1,5))
-    start= time.time()
+    inicio= time.time()
 
     db=MongoDB(hilos)
     db.iniciarDB()
     email=[]
     id=[]
     passw=[]
+    valor= random.randint(0,20)
+    time.sleep(valor)
 
     result= db.findby1("accountmanager","acc_estado",5)
     for elem in result:
@@ -45,13 +45,11 @@ def main():
         id=(elem["_id"])
         passw =(elem["pass"])
         db.updateOne("accountmanager",id,"acc_estado",7)
-        db.updateOne("accountmanager",id,"datelogin",time.time())  
+        db.updateOne("accountmanager",id,"datelogin",datetime.today().strftime('%Y-%m-%d %H:%M'))  
         #for elemid in id:
         #    db.updateOne("accountmanager",elemid,"creacionlistasentrenamiento",2)
         db.cerrarConexion()
     
-    valor= random.randint(5,30)
-    time.sleep(valor)
 
     print (db,email,id,passw)
 
@@ -80,7 +78,6 @@ def main():
             if returnLoginSpotify== False:
                 returnLoginSpotify= acciones.loginSpotify(email,password)
                 i+=1
-                
             else:
                 i=4
         time.sleep(10)    
@@ -114,7 +111,7 @@ def main():
         #enviaremailmensaje(email,mensaje)        
         pyautogui.moveTo(1866, 1223)
         pyautogui.click()
-        valor= random.randint(1,3)
+        valor= 1 #random.randint(1,3)
         if valor == 1:  #reproducir lista
             with open(os.path.join(pathImg,f"mensaje.txt"), 'w') as f:
                 f.write("Reproduciendo la lista ") 
@@ -122,20 +119,23 @@ def main():
             #enviaremailmensaje(email,mensaje)
             acciones.abrirlistareproduccion()
             time.sleep(10)
-            pyautogui.moveTo(1065, 745)
-            pyautogui.moveTo(1065, 745)
-            pyautogui.click(1065, 745)            
-            time.sleep(2)
-            pyautogui.moveTo(100, 700)
-            pyautogui.click(100,700)              
-            pyautogui.click(100,700)  
-            time.sleep(2)            
+            #pyautogui.moveTo(1065, 745)
+            #pyautogui.moveTo(1065, 745)
+            #pyautogui.click(1065, 745)            
+            #time.sleep(2)
+            #pyautogui.moveTo(100, 700)
+            #pyautogui.click(100,700)              
+            #pyautogui.click(100,700)  
+            #time.sleep(2)            
             #pyautogui.screenshot(os.path.join(pathImg,f"abrirlista.png"))
             #time.sleep(15)
             #imagen= "abrirlista.png"
             #enviaremailreproduccion(email,imagen)            
-            acciones.reproducir1(email)
-            
+            pyautogui.screenshot(os.path.join(pathImg,f"PlayList.png"))
+            time.sleep(15)
+            imagen= "PlayList.png"
+            enviaremailreproduccion(email,imagen)
+            time.sleep(300)            
         
         elif valor==2: #reproducir directamente del album
             acciones.ir('https://open.spotify.com/artist/79y2edTYTHJtBpwcVuCnhH')
