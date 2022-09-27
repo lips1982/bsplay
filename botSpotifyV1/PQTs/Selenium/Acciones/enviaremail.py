@@ -14,8 +14,8 @@ def enviaremailerror(email,adjunto,error,valor):
     corre, contrase = emailsender    
     remitente = corre
     destinatarios = ['azuresilkmain@gmail.com']
-    asunto = f'Error al reproducir: {email} - valor{valor}'
-    cuerpo = f"Error al reproducir:{error}"
+    asunto = f'{email} - valor{valor}'
+    cuerpo = error
     ruta_adjunto = (os.path.join(pathImg,f'{adjunto}'))
     nombre_adjunto = f'{adjunto}'
 

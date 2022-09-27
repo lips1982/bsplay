@@ -90,7 +90,7 @@ def main():
             pyautogui.screenshot(os.path.join(pathImg,f"Errorlogin.png"))
             time.sleep(15)
             imagen= "Errorlogin.png"
-            enviaremailerror(email,imagen,"Loging ERROR") 
+            enviaremailerror(f'Error Password Incorrecto: {email}',imagen,"Loging ERROR", "PASSWORD FAIL") 
             time.sleep(5)           
             exit()
 
@@ -164,7 +164,7 @@ def main():
         pyautogui.screenshot(os.path.join(pathImg,f"ErrorReproducir.png"))
         time.sleep(15)
         imagen= "ErrorReproducir.png"
-        enviaremailerror(email,imagen,e,valor)            
+        enviaremailerror(f'Error al reproducir: {email}',imagen,e,valor)            
         #error= "error.txt"
         #enviaremailerror(email,error)
 
