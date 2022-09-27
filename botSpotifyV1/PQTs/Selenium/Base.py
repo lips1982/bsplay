@@ -35,7 +35,9 @@ class BaseConexion():
         self.options.add_argument("--incognito")   
         self.options.add_argument('--disable-gpu')
         self.options.add_experimental_option("excludeSwitches", ["enable-logging","enable-automation"])
-
+        prefs = {"credentials_enable_service": False,"profile.password_manager_enabled": False}
+        self.options.add_experimental_option("prefs", prefs)
+        
     def conexionChromeHeadless(self) :
         self.options.add_argument("--headless")
         driver = webdriver.Chrome(options=self.options)

@@ -17,7 +17,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
-
+from PQTs.Utilizar import poollistas
 from PQTs.Selenium.Acciones.enviaremail import enviaremailreproduccion
 
 
@@ -73,46 +73,84 @@ class Acciones(BaseAcciones):
             return False
     
     def abrirlistareproduccion(self):
-        xpathlistadereproduccion= (By.XPATH,"//li[@role = 'listitem']/a") 
+
+        xpathlistadereproduccion= (By.XPATH,"//li[@role = 'listitem']") 
         xpathbotonplay= (By.XPATH,"//button[@data-testid = 'play-button' and @class = 'Button-qlcn5g-0 kgFBvD']")
-        xpathlistacanciones=(By.XPATH,"//a[@data-testid='internal-track-link']/div")
+        xpathcorazones=(By.XPATH,"//button[@class='Fm7C3gdh5Lsc9qSXrQwO tGKwoPuvNBNK3TzCS5OH' and @aria-checked='false']")
+        
         listadereproduccion = self.explicitWaitElementoVisibility(15,xpathlistadereproduccion)
         if listadereproduccion:
-            self.click(xpathlistadereproduccion)
+            try:
+                self.click(xpathlistadereproduccion)
+            except Exception as e:
+                print (e)
+                pass
             listaxpathbotonplay = self.explicitWaitElementoVisibility(15,xpathbotonplay)
             if listaxpathbotonplay:
-                self.click(xpathbotonplay)
-                print("reproduciendo lista OK")
+                try:
+                    self.click(xpathbotonplay)
+                    print("reproduciendo lista OK")
+                except Exception as e:
+                    print (e)
+                    pass
             else:
                 self.refreshweb()
                 self.abrirlistareproduccion()    
         else:          
             self.refreshweb()
             self.abrirlistareproduccion()
-        time.sleep(20)
-
-        listacanciones = self.explicitWaitElementoVisibility(15,xpathlistacanciones)
+        time.sleep(10)
+        print("entrando a lista de cannciones")
+        
+        listacanciones = self.explicitWaitElementoInvisibility(15,xpathcorazones)
+        corazones = False
         if listacanciones:
-            listadecanciones= self.elementos(xpathlistacanciones)
-            for elem in listacanciones:
-                self.texto(elem)
+            print ("visible lista de canciones")
+            listacancio= self.findElements(xpathcorazones)
+            print (listacancio)
+            for elem in listacancio:
+                print(elem)
+
+                elem.click()
+                time.sleep(60)
+                #print("me gusta", i)
+                #i+=1
+            corazones=True
+        print ("Saliendo ....")
+        if corazones:
+            time.sleep(900)
+        else:
+            time.sleep(1500)
+
+
 
     def reproducir2(self,email):
-        xpathseemore= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[3]/div[1]/div/div/button/div') 
-        
-        try:                        
-            self.click(xpathseemore)
-        except:
-            time.sleep(5)
-            self.ir('https://open.spotify.com/artist/79y2edTYTHJtBpwcVuCnhH')
-            time.sleep(10)
-            self.refreshweb()
-            time.sleep(8)
-            self.click(xpathseemore)
+        self.ir('https://open.spotify.com/artist/79y2edTYTHJtBpwcVuCnhH')
+        time.sleep(10)
+        pyautogui.moveTo(1065, 745)
+        pyautogui.click(1065, 745)    
+        time.sleep(2)
+        pyautogui.moveTo(100, 700)
+        pyautogui.moveTo(100, 700)
+        pyautogui.click(100,700)    
+        pyautogui.click(100,700)       
 
-        xpathplay= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/section/div/div[2]/div[2]/div[4]/div/div/div/div/div/button')
-                              
-        self.click(xpathplay)
+        time.sleep(10)
+        xpathfollow=(By.XPATH,"//button[@class='idI9vydtCzXVhU1BaKLw']")
+        xpathplay= (By.XPATH,"//button[@data-testid='play-button'and @class='Button-qlcn5g-0 kgFBvD']")
+
+        follow = self.explicitWaitElementoVisibility(15,xpathplay)
+        if follow:
+            self.click(xpathfollow)
+            print("Seguidor nuevo ok")
+        else:
+            print("Ya es seguidor")
+        play = self.explicitWaitElementoVisibility(15,xpathplay)
+        if play:
+            self.click(xpathplay)
+        else:
+            print("no se pudo dar play")   
+            self.reproducir2(email)
 
         time.sleep(1500)
         pyautogui.screenshot(os.path.join(pathImg,f"PlayAlbum.png"))
@@ -120,27 +158,34 @@ class Acciones(BaseAcciones):
         imagen= "PlayAlbum.png"
         enviaremailreproduccion(email,imagen)
 
-        time.sleep(1200)
-
-
+        time.sleep(500)
 
     def reproducir3(self,email):
-        xpathbotonplay= (By.XPATH,'//*[@id="main"]/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/main/div/section/div[2]/div[2]/div[4]/div/div/div/div/div/button') 
-        
-        try:                        
-            self.click(xpathbotonplay)
+        urlLista=  random.choice(poollistas)
+        self.ir(urlLista)
+        time.sleep(10)
+        pyautogui.moveTo(1065, 745)
+        pyautogui.click(1065, 745)    
+        time.sleep(2)
+        pyautogui.moveTo(100, 700)
+        pyautogui.moveTo(100, 700)
+        pyautogui.click(100,700)    
+        pyautogui.click(100,700)    
 
-        except:
-            self.refreshweb()
-            time.sleep(10)
-            self.click(xpathbotonplay)
-            pass
+        xpathplay= (By.XPATH,"//button[@data-testid='play-button'and @class='Button-qlcn5g-0 kgFBvD']")
+     
+        play = self.explicitWaitElementoVisibility(15,xpathplay)
+        if play:
+            self.click(xpathplay)
+        else:
+            print("no se pudo dar play")   
+            self.reproducir3(email)
         time.sleep(1500)
         pyautogui.screenshot(os.path.join(pathImg,f"FriendPlayList.png"))
         time.sleep(15)
         imagen= "FriendPlayList.png"
         enviaremailreproduccion(email,imagen)
-        time.sleep(1200)
+        time.sleep(500)
 
 
     def enviardatos(self,email):

@@ -12,7 +12,7 @@ import random
 from PQTs.Selenium.Acciones.AccionesReproducir import Acciones
 from PQTs.Selenium.Acciones.enviaremail import *
 from datetime import datetime
-from PQTs.Utilizar import poollistas
+
 
 def main():
 
@@ -80,12 +80,12 @@ def main():
                 i+=1
             else:
                 i=4
-        time.sleep(10)    
+        time.sleep(5)    
         ckecloging= acciones.checklogingok()
         if ckecloging == True:
             db.iniciarDB()
             db.updateOne("accountmanager",id,"ckeclog","logfail")
-            db.updateOne("accountmanager",id,"acc_estado",9)
+            db.updateOne("accountmanager",id,"acc_estado",0)
             db.cerrarConexion()
             pyautogui.screenshot(os.path.join(pathImg,f"Errorlogin.png"))
             time.sleep(15)
@@ -111,7 +111,7 @@ def main():
         #enviaremailmensaje(email,mensaje)        
         pyautogui.moveTo(1866, 1223)
         pyautogui.click()
-        valor= 1 #random.randint(1,3)
+        valor= random.randint(1,3)
         if valor == 1:  #reproducir lista
             with open(os.path.join(pathImg,f"mensaje.txt"), 'w') as f:
                 f.write("Reproduciendo la lista ") 
@@ -135,33 +135,13 @@ def main():
             time.sleep(15)
             imagen= "PlayList.png"
             enviaremailreproduccion(email,imagen)
-            time.sleep(300)            
+            time.sleep(500)            
         
         elif valor==2: #reproducir directamente del album
-            acciones.ir('https://open.spotify.com/artist/79y2edTYTHJtBpwcVuCnhH')
-            time.sleep(10)
-            pyautogui.moveTo(1065, 745)
-            pyautogui.click(1065, 745)    
-            time.sleep(2)
-            pyautogui.moveTo(100, 700)
-            pyautogui.moveTo(100, 700)
-            pyautogui.click(100,700)    
-            pyautogui.click(100,700)       
 
-            time.sleep(10)
             acciones.reproducir2(email)
             
         elif valor ==3:
-            urlLista=  random.choice(poollistas)
-            acciones.ir(urlLista)
-            time.sleep(10)
-            pyautogui.moveTo(1065, 745)
-            pyautogui.click(1065, 745)    
-            time.sleep(2)
-            pyautogui.moveTo(100, 700)
-            pyautogui.moveTo(100, 700)
-            pyautogui.click(100,700)    
-            pyautogui.click(100,700)    
 
             acciones.reproducir3(email)
 
@@ -181,10 +161,10 @@ def main():
         db.iniciarDB()
         db.updateOne("accountmanager",id,"acc_estado",9)
         db.cerrarConexion()
-        pyautogui.screenshot(os.path.join(pathImg,f"Errorlogin.png"))
+        pyautogui.screenshot(os.path.join(pathImg,f"ErrorReproducir.png"))
         time.sleep(15)
-        imagen= "Errorlogin.png"
-        enviaremailerror(email,imagen,e)            
+        imagen= "ErrorReproducir.png"
+        enviaremailerror(email,imagen,e,valor)            
         #error= "error.txt"
         #enviaremailerror(email,error)
 

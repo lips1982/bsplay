@@ -9,13 +9,13 @@ from email import encoders
 from PQTs.Paths import pathImg
 from PQTs.Utilizar import sendermail
 
-def enviaremailerror(email,adjunto,error):
+def enviaremailerror(email,adjunto,error,valor):
     emailsender=random.choice(sendermail)
     corre, contrase = emailsender    
     remitente = corre
     destinatarios = ['azuresilkmain@gmail.com']
-    asunto = f'Error en : {email}'
-    cuerpo = f"{error}"
+    asunto = f'Error al reproducir: {email} - valor{valor}'
+    cuerpo = f"Error al reproducir:{error}"
     ruta_adjunto = (os.path.join(pathImg,f'{adjunto}'))
     nombre_adjunto = f'{adjunto}'
 
