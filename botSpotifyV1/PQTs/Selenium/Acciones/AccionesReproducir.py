@@ -2,6 +2,7 @@
 
 import datetime
 import os
+from re import L
 import time
 
 from PQTs.Selenium.Base import BaseAcciones
@@ -73,12 +74,13 @@ class Acciones(BaseAcciones):
             return False
     
     def abrirlistareproduccion(self):
-
+        
         xpathlistadereproduccion= (By.XPATH,"//li[@role = 'listitem']") 
         xpathbotonplay= (By.XPATH,"//button[@data-testid = 'play-button' and @class = 'Button-qlcn5g-0 kgFBvD']")
         xpathcorazones=(By.XPATH,"//button[@class='Fm7C3gdh5Lsc9qSXrQwO tGKwoPuvNBNK3TzCS5OH' and @aria-checked='false']")
         
         listadereproduccion = self.explicitWaitElementoVisibility(15,xpathlistadereproduccion)
+        
         if listadereproduccion:
             try:
                 self.click(xpathlistadereproduccion)
@@ -104,10 +106,13 @@ class Acciones(BaseAcciones):
         
         listacanciones = self.explicitWaitElementoInvisibility(15,xpathcorazones)
         corazones = False
+
         if listacanciones:
             print ("visible lista de canciones")
             listacancio= self.findElements(xpathcorazones)
             print (listacancio)
+            if len(listacancio) <8:  # OJO PARA NUEVOS ALBUNES SE DEBE AJUSTAR EL VALOR
+                return False
             for elem in listacancio:
                 print(elem)
 
