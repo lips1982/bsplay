@@ -117,7 +117,12 @@ def main():
                 f.write("Reproduciendo la lista ") 
             mensaje= "mensaje.txt"
             #enviaremailmensaje(email,mensaje)
-            acciones.abrirlistareproduccion()
+            reproducir = acciones.abrirlistareproduccion()
+            if reproducir== False:
+                db.iniciarDB()
+                db.updateOne("accountmanager",id,"acc_estado",3)
+                db.cerrarConexion()  
+                exit()                  
             time.sleep(10)
             #pyautogui.moveTo(1065, 745)
             #pyautogui.moveTo(1065, 745)
