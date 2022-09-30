@@ -111,7 +111,7 @@ class Acciones(BaseAcciones):
             print ("visible lista de canciones")
             listacancio= self.findElements(xpathcorazones)
             print (listacancio)
-            if len(listacancio) <8:  # OJO PARA NUEVOS ALBUNES SE DEBE AJUSTAR EL VALOR
+            if len(listacancio) < 8:  # OJO PARA NUEVOS ALBUNES SE DEBE AJUSTAR EL VALOR
                 return False
             for elem in listacancio:
                 print(elem)
