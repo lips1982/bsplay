@@ -145,11 +145,12 @@ class Acciones(BaseAcciones):
         xpathplay= (By.XPATH,"//button[@data-testid='play-button'and @class='Button-qlcn5g-0 kgFBvD']")
 
         follow = self.explicitWaitElementoVisibility(15,xpathplay)
-        if follow:
-            self.click(xpathfollow)
-            print("Seguidor nuevo ok")
-        else:
-            print("Ya es seguidor")
+        try:
+            if follow:
+                self.click(xpathfollow)
+                print("Seguidor nuevo ok")
+        except:
+                print("Ya es seguidor")            
         play = self.explicitWaitElementoVisibility(15,xpathplay)
         if play:
             self.click(xpathplay)
