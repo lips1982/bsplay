@@ -169,7 +169,7 @@ def main():
         pyautogui.screenshot(os.path.join(pathImg,f"ErrorReproducir.png"))
         time.sleep(15)
         errors= "error.txt"
-        enviaremailerror(f'Error Password Incorrecto: {email}',errors,"Error 9", "PASSWORD FAIL")           
+        enviaremailerror(f'Error en 9 : {email}',errors,"Error 9", "PASSWORD FAIL")           
         #error= "error.txt"
         #enviaremailerror(email,error)
 
