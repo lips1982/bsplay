@@ -168,8 +168,8 @@ def main():
         db.cerrarConexion()
         pyautogui.screenshot(os.path.join(pathImg,f"ErrorReproducir.png"))
         time.sleep(15)
-        imagen= "ErrorReproducir.png"
-        enviaremailerror(f'Error al reproducir: {email}',imagen,e,valor)            
+        errors= "error.txt"
+        enviaremailerror(f'Error Password Incorrecto: {email}',errors,"Error 9", "PASSWORD FAIL")           
         #error= "error.txt"
         #enviaremailerror(email,error)
 
