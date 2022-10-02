@@ -77,7 +77,7 @@ class Acciones(BaseAcciones):
         
         xpathlistadereproduccion= (By.XPATH,"//li[@role = 'listitem']") 
         xpathbotonplay= (By.XPATH,"//button[@data-testid = 'play-button' and @class = 'Button-qlcn5g-0 kgFBvD']")
-        xpathcorazones=(By.XPATH,"//button[@class='Fm7C3gdh5Lsc9qSXrQwO tGKwoPuvNBNK3TzCS5OH' and @aria-checked='false']")
+        xpathcorazones=(By.XPATH,"//span[@class='Type__TypeElement-goli3j-0 eDbSCl']") 
         
         listadereproduccion = self.explicitWaitElementoVisibility(15,xpathlistadereproduccion)
         
